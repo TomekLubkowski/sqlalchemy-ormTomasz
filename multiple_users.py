@@ -8,6 +8,10 @@ def create_fake_users(count=10):
         first_name=fake.first_name(),
         last_name=fake.last_name(),
         email=fake.email(),
+        salary=fake.pyfloat(
+            min_value=4000,
+            max_value=10_000
+        ),
     )
     for _ in range(count)]
 

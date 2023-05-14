@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, create_engine
+import datetime
+from sqlalchemy import Column, Integer, String, create_engine, DateTime, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -16,6 +17,12 @@ class User(Base):
     first_name = Column(String(50), nullable=False)
     last_name = Column(String(50), nullable=False)
     email = Column(String(50), nullable=False, unique=True)
+
+    salary = Column(Float, default=0, nullable=False)
+    creation_date = Column(
+        DateTime, default=datetime.datetime.now,
+        nullable=False
+    )
 
     def __repr__(self):
         return f"<User {self.first_name} {self.last_name}>"
