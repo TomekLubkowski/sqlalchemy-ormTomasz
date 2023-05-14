@@ -25,7 +25,7 @@ class User(Base):
     )
 
     def __repr__(self):
-        return f"<User {self.first_name} {self.last_name}>"
+        return f"<User {self.first_name}, {self.last_name}, {self.email}, {self.salary}>"
 
 
 Base.metadata.create_all()
